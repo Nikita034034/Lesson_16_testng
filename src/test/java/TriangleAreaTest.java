@@ -1,17 +1,22 @@
-import org.testng.Assert;
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TriangleAreaTest {
     @Test
-    public void testArea() {
+    public void testAreaWithZero() {
         TriangleArea t = new TriangleArea();
-        Assert.assertEquals(t.calculate(10, 5), 25.0);
+        assertEquals(0.0, t.calculate(0, 10));
     }
 
     @Test
-    public void testAreaWithZero() {
+    public void testAreaWithPositiveNumbers() {
         TriangleArea t = new TriangleArea();
-        Assert.assertEquals(t.calculate(0, 5), 0.0);
-        Assert.assertEquals(t.calculate(10, 0), 0.0);
+        assertEquals(6.0, t.calculate(3, 4));
+    }
+
+    @Test
+    public void testAreaWithDoubles() {
+        TriangleArea t = new TriangleArea();
+        assertEquals(2.5, t.calculate(2.0, 2.5));
     }
 } 
